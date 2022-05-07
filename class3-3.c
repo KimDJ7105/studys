@@ -189,9 +189,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 		if (wParam == VK_SPACE) {
 			for (int i = 0; i < x; i++) {
 				for (int j = 0; j < y; j++) {
-					if (B.move[i][j]) {	//°¡²û ÀÌ»óÇÑ ºí·°ÀÌ »ç¶óÁü, ÀÌ°Í¸¸ °íÄ¡¸é ³¡
-						//link°¡ ÁÂ ¿ìÀÏ¶§, ¾Æ·¡ÀÏ¶§ ³ª´²¼­ º¯È¯
-						if (B.link[i][j] == B.link[i + 1][j]) {	//link °¡ ¿ìÃø°ú °°À» ¶§
+					if (B.move[i][j]) {	//ê°€ë” ì´ìƒí•œ ë¸”ëŸ­ì´ ì‚¬ë¼ì§, ì´ê²ƒë§Œ ê³ ì¹˜ë©´ ë
+						//linkê°€ ì¢Œ ìš°ì¼ë•Œ, ì•„ëž˜ì¼ë•Œ ë‚˜ëˆ ì„œ ë³€í™˜
+						if (B.link[i][j] == B.link[i + 1][j]) {	//link ê°€ ìš°ì¸¡ê³¼ ê°™ì„ ë•Œ
 							B.check[i][j - 1] = B.check[i + 1][j];
 							B.link[i][j - 1] = B.link[i + 1][j];
 							B.move[i][j - 1] = B.move[i + 1][j];
@@ -468,13 +468,13 @@ void CALLBACK Game(HWND hWnd, UINT uMsg, UINT_PTR idEvent, DWORD dwTime) {
 
 		Make_three_del();
 
-		if (dis == 1) {		// ºí·° ÇÏ³ª
+		if (dis == 1) {		// ë¸”ëŸ­ í•˜ë‚˜
 			B.check[2][0] = c_dis;
 			B.link[2][0] = l_count++;
 			B.move[2][0] = TRUE;
 		}
 
-		else if (dis == 2) {	//ºí·° ¾ç ¿·
+		else if (dis == 2) {	//ë¸”ëŸ­ ì–‘ ì˜†
 			B.check[2][0] = c_dis;
 			B.link[2][0] = l_count;
 			B.move[2][0] = TRUE;
@@ -485,7 +485,7 @@ void CALLBACK Game(HWND hWnd, UINT uMsg, UINT_PTR idEvent, DWORD dwTime) {
 
 		}
 
-		else if (dis == 3) {	//ºí·° À§ ¾Æ·¡
+		else if (dis == 3) {	//ë¸”ëŸ­ ìœ„ ì•„ëž˜
 			B.check[2][0] = c_dis;
 			B.link[2][0] = l_count;
 			B.move[2][0] = TRUE;
